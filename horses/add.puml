@@ -1,0 +1,21 @@
+name: Add a horse
+modules:
+  - db = horseDatabase
+steps:
+  - horse = $body
+  - isNotNull: $horse
+  - isNotNull: $horse.name
+  - isNotNull: $horse.breed
+  - isNotNull: $horse.age
+  - existingHorse = db.get: $horse.name
+  - if:
+      value: ${existingHorse == null}
+      is false: 
+        - bad request:
+            error: Horse '$horse.name' already exists
+  - db.add: 
+      #Don't let any additional data get in
+      name: $horse.name
+      breed: $horse.breed
+      age: $horse.age
+  - ok: $horse

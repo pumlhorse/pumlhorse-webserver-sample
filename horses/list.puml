@@ -1,0 +1,7 @@
+name: List horses
+modules:
+  - db = horseDatabase: horseDatabase
+steps:
+  - horses = db.list
+  - ok: 
+      horses: $horses

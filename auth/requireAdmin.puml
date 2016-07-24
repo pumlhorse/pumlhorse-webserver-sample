@@ -1,0 +1,8 @@
+name: Require admin permissions
+steps:
+  - isNotNull: $headers.authorization
+  - if:
+      value: ${ headers.authorization == "super_secret_admin" }
+      is false:
+        unauthorized:
+          error: User is not authorized

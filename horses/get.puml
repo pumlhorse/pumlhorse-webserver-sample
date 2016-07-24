@@ -1,0 +1,12 @@
+name: Get a specific horse
+modules:
+  - db = horseDatabase
+steps:
+  - horse = db.get: $path.horseName
+  - if:
+      value: ${horse == null}
+      is true: 
+        - not found:
+            error: Horse '$path.horseName' does not exist
+      is false:
+        - ok: $horse

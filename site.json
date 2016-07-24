@@ -1,0 +1,16 @@
+{
+    "routes": {
+        "get": {
+            "/horses": "horses/list.puml",
+            "/horses/<horseName>": "horses/get.puml"
+        },
+        "post": {
+            "/horses": {
+                "script": "horses/add.puml",
+                "filters": [
+                    "auth/requireAdmin.puml"
+                ]
+            }
+        }
+    }
+}

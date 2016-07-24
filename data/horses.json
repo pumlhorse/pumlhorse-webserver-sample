@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Handsome Jack",
+        "breed": "Appaloosa",
+        "age": 3
+    },
+    {
+        "name": "Ugly Jake",
+        "breed": "Shetland Pony",
+        "age": 17
+    }
+]
